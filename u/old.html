@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<meta name="google-signin-client_id" content="223385054586-g84ohj1ptgjm7qf3mgl5qqqb8egqa7jv.apps.googleusercontent.com">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="https://i.ibb.co/Smhx8Yk/logo.png"/>
+	<meta name="theme-color" content="#000000" />
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=News+Cycle&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, ">
+	<!--Bootstrap Core Scripts-->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!--
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&callback=mycallback"></script>
+	-->
+
+	<title>Kabeer's Search</title>
+
+</head>
+<body>
+<!--
+<script type="text/javascript">
+	  var channel_id = 11;
+  $.getJSON( "http://www.filmon.com/tv/api/channel/" + channel_id , {},
+      function(channelInfo) { alert(channelInfo); } );
+</script>
+-->
+<div class="container text-center justify-content-center">
+	<div class="row">
+		<div style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;max-width: 40ch" class="col-sm-12" id="result-container"><div class="card text-dark bg-light mb-3 mt-3" style="max-width: 100%;"><div class="card-header"  style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;max-width: 30ch;font-size: 1.25em;">Photos Set 1</div> <div class="card-body"> <h5 class="card-title" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;max-width: 40ch;font-size: 1.25em;" ><a href="">'+response.results[i].domain+'</a></h5> <p class="card-text" style="text-overflow: ellipsis;overflow: hidden;white-space: break-word;max-width: 200ch" >'+response.results[i].kwic+'</p><hr><div><p>'+response.results[i].author+' | </p></div></div></div></div>
+
+		<div style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;max-width: 40ch" class="col-sm-12" id="result-container"><div class="card text-dark bg-light mb-3 mt-3" style="max-width: 100%;"><div class="card-header"  style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;max-width: 30ch;font-size: 1.25em;">'+response.results[i].title+'</div> <div class="card-body"> <h5 class="card-title" style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;max-width: 40ch;font-size: 1.25em;" ><a href="'+response.results[i].url+'">'+response.results[i].domain+'</a></h5> <p class="card-text" style="text-overflow: ellipsis;overflow: hidden;white-space: break-word;max-width: 200ch" >'+response.results[i].kwic+'</p><hr><div><p>'+response.results[i].author+' | </p></div></div></div></div>
+		<div class="col-md-6">
+			<div class="display-4" style="font-size: 30px">Photos Set 1</div>
+			<hr style="border-radius: 30px;width: 70%;" class="pb-2 pt-3">
+			<a href="http://docs-kabeersnetwork-kview-app-sta.rf.gd/Private/uploads/5e6b5323e6d75-Sakina%20Bagi%20Ki%20Photos%20Set1-kabeer%20jaffri-Photos.zip" class="btn btn-primary">Download</a>
+		</div>
+		<div class="col-md-6">
+			<div class="display-4" style="font-size: 30px">Photos Set 2</div>
+			<hr style="border-radius: 30px;width: 70%;" class="pb-2 pt-3">
+			<a href="#" class="btn btn-primary">Download</a>
+		</div>
+	</div>
+</div>
+<span id="miniclock"><noscript>Enable JS to see clock</noscript></span>
+<script language="JavaScript" type="text/javascript">
+<!-- JavaScript Clock Provided by SEO Tools - http://31.22.7.79/ -->
+<!--
+function runMiniClock()
+{
+    var time = new Date();
+    var hours = time.getHours();
+    var minutes = time.getMinutes();
+    minutes=((minutes < 10) ? "0" : "") + minutes;
+    ampm = (hours >= 12) ? "PM" : "AM";
+    hours=(hours > 12) ? hours-12 : hours;
+    hours=(hours == 0) ? 12 : hours;
+    var clock = hours + ":" + minutes + " " + ampm;
+    if(clock != document.getElementById('miniclock').innerHTML) document.getElementById('miniclock').innerHTML = clock;
+    timer = setTimeout("runMiniClock()",1000);
+}
+runMiniClock();
+//-->
+</script>
+
+</body>
+</html>
