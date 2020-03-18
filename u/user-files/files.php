@@ -92,7 +92,7 @@ $b = scandir($_SESSION['id'].'/',1);
 $path = $_SESSION['id'].'/';
 $b = array_diff($b, array('.', '..'));
 echo "<hr style='border-color: transparent'><hr style='border-color: transparent'>";
-echo '<div class="container mt-4"><div class="row">';
+echo '<div class="container" style="margin-top:10;padding-top:3.5em;"><div class="row">';
 foreach ($b as $b)
 {
     $file = $path.$b;
@@ -210,7 +210,6 @@ function deleteAll()
 </nav>
 
 </div>
-
 <nav aria-label="breadcrumb mt-0">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
