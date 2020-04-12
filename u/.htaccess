@@ -1,0 +1,11 @@
+ErrorDocument 403 /u/error.php
+ErrorDocument 404 /u/error.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^0/(.*)$ user-files/$1 [QSA]
+</IfModule>
+
+<IfModule mod_alias.c>
+#RedirectMatch 301 /u/user-files/(.*) /u/0/$1
+</IfModule>

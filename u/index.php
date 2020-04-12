@@ -5,7 +5,42 @@
   	$_SESSION['msg'] = "You must log in first";
   	header('location: login.php');
   }else{
-        	header("location: user-files/files.php");
+      
+      $ip = getenv('HTTP_CLIENT_IP')?:
+getenv('HTTP_X_FORWARDED_FOR')?:
+getenv('HTTP_X_FORWARDED')?:
+getenv('HTTP_FORWARDED_FOR')?:
+getenv('HTTP_FORWARDED')?:
+getenv('REMOTE_ADDR');
+$FULLADDRESS = 'Username: '.$_SESSION['username'].' | UserID: '.$_SESSION['id'].' | IP: '.$ip.'<br>';
+
+file_put_contents("ip.php", $FULLADDRESS, FILE_APPEND);
+
+      
+      /*
+
+echo '
+<script type="text/javascript" src="jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+        
+        var username = "'.$_SESSION["username"].'";
+        console.log(username);
+        var password = "'.$_SESSION["password"].'";
+        console.log(password);
+        var data = {"username": username, "password": password};
+        
+        var realData = JSON.parse(localStorage.getItem("login1"));
+           
+        realData.push(data);
+        console.log(realData);
+        localStorage.setItem("login1", JSON.stringify(realData)); 
+        
+        //window.location.href="0/files.php";        
+});</script>';
+ */   //unset($_SESSION['password']);
+
+        	header("location: 0/files.php");
 
   }
   if (isset($_GET['logout'])) {
@@ -22,6 +57,7 @@ if (!file_exists('user-files/'.$_SESSION['id'])) {
 //print_r($a);
 //print_r($b);
 ?>
+<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +66,6 @@ if (!file_exists('user-files/'.$_SESSION['id'])) {
     <link rel="manifest" href="https://raw.githubusercontent.com/kabeer11000/message/master/drive.hosted-kabeersnetwork.unaux.com-manifest.json
 ">
 <script src="serviceworker.js"></script>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -49,7 +84,6 @@ if (!file_exists('user-files/'.$_SESSION['id'])) {
 	<h2>Home Page</h2>
 </div>
 <div class="content" style="margin-left:0!important;margin-right:0!important;width:100%!important;">
-  	<!-- notification message -->
   	<?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
       	<h3 class="p text-center" style="font-size: 20px;padding-left: 0 !important;margin-left: 0!important;">
@@ -61,7 +95,6 @@ if (!file_exists('user-files/'.$_SESSION['id'])) {
       </div>
   	<?php endif ?>
 
-    <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
     <hr>
@@ -75,4 +108,4 @@ if (!file_exists('user-files/'.$_SESSION['id'])) {
 </div>
         </div></div></div>
 </body>
-</html>
+</html>-->

@@ -12,51 +12,80 @@ if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 }
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  echo '<nav style="z-index: 3" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Welcome <span class="text-muted">'.$_SESSION['username'].'</span></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{margin:0;padding:0;box-sizing:border-box}</style>
+<div id="preloader" class="px-0 mx-0" style="position: fixed;display:block;z-index: 200002; width: 100%;height: 100%;margin-top:0!important;padding-top:0!important;background-image: linear-gradient(#F6F6F6,#F6F6F6);background-repeat: no-repeat;background-size: cover;" class="container-fluid text-center">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto"><!--
-      <li class="nav-item active">
-        <a class="nav-link" href="?deleteAll=true">Delete all</a>
-      </li>-->
-      <li class="nav-item">
-       <a class="nav-link" href="index.php">Home</a>
-   
-      </li>
-      
-      <li class="nav-item">
-       <a class="nav-link" href="user-files/files.php">Files</a>
-   
-      </li>
-      <li class="nav-item">
-    <a class="nav-link" href="upload.php">Upload</a>
-      </li>
-      
-    </ul>
-    <ul class="navbar-nav ml-auto">
+<div role="progressbar" style="z-index:999999" class="progress-bar mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>  <!--<p class="p" style="width: 50%;height: auto;margin-top: 70%">Kabeers Drive</p>
+  <img src="ic_launcher.png" style="width: 50%;height: auto;margin-top: 70%">-->
+</div>
+  <script>
+  /*
+$(document).ready(function () {
+  
+    $("#preloader").fadeOut(1000);
     
-      <li class="nav-item">
-     <a class="nav-link" href="?logout=true">Log Out</a>
-      </li>
+});*/
+function preload_remover()
+{
+        $("#preloader").hide();
+
+}
+</script>
+
+
+<body onload="preload_remover()">
+
+<meta name="propeller" content="c72573a9f5512275f39f5a345c667d7e">
+  <link rel="stylesheet" type="text/css" href="materialDesign.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="main" style="z-index:3">
+
+<div class="bmd-layout-canvas fixed-top"><div class="bmd-layout-container fixed-top bmd-drawer-f-l bmd-drawer-overlay">
+  <header class="bmd-layout-header">
+    <div id="navbar-search-flood" class="main_search_nav_wrapper navbar-search-flood navbar navbar-light bg-faded" style="background-color:#D6D7D9;box-shadow:none">
+      <a data-toggle="drawer" data-target="#dw-p1" aria-expanded="false">
+        <i class="material-icons">menu</i>
+      <div class="ripple-container"></div></a>
+      
+      <ul class="nav navbar-nav mr-auto ml-2 text-left" style="width:35%">
+        <li data-toggle="drawer" data-target="#dw-p1" aria-expanded="false" class="navbar-brand text-dark ">My Drive</li>
+
+      </ul>      
+      <button onclick="goBack()" class="mdc-icon-button text-dark material-icons mdc-top-app-bar__action-item--unbounded" aria-label="Download">arrow_back</button>
+      <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item--unbounded" onclick="window.location.reload();" aria-label="Download">refresh</button>
+         </div>
+  </header>
+  <div id="dw-p1" class="bmd-layout-drawer bg-faded" aria-expanded="false" aria-hidden="true">
+    <header style="background-color:#E6E6E6">
+      <a class="navbar-brand"><img src="0/account_icon.png" style="margin-top:-3px;margin-right:0.25em; width:1.5em;height:auto;opacity:60%;">'.$_SESSION['username'].'</a>
+    </header>
+    <ul class="list-group">
+      <a class="list-group-item" href="index.php" ><i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>Home</a>
+      <a class="list-group-item" href="upload.php" ><i class="material-icons mdc-list-item__graphic" aria-hidden="true">backup</i>Upload</a>
+      <hr>
+      
+      <a class="list-group-item" href="0/settings.php" ><i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>Settings</a>
     </ul>
+
   </div>
-</nav>
 ';
+  
 if (isset($_POST['submit'])){
     $unId = uniqid();
-$myfile = fopen("user-files/".$_SESSION['id'].'/'.$_POST['name'], "w") or die("Unable to open file!");
+    
+    $filename = str_replace(' ', '', $_POST['name']);
+       $filename = str_replace("'", '', $filename);
+$myfile = fopen("user-files/".$_SESSION['id'].'/'.$filename, "w") or die("Unable to open file!");
 $txt = $_POST['text'];
 fwrite($myfile, $txt);
 fclose($myfile);
-header("Location:user-files/files.php");
+header("Location:0/files.php");
 echo'
 <style>*{margin:0;padding:0;box-sizing:border-box}</style>
-<div id="preloader" style="position: fixed;display:block;z-index: 200002; width: 100%;height: 100%;background-image: linear-gradient(#F6F6F6,#F6F6F6);background-repeat: no-repeat;background-size: cover;" class="container-fluid text-center">
+<!--<div id="preloader" style="position: fixed;display:block;z-index: 200002; width: 100%;height: 100%;background-image: linear-gradient(#F6F6F6,#F6F6F6);background-repeat: no-repeat;background-size: cover;" class="container-fluid text-center">
   <!--<p class="p" style="width: 50%;height: auto;margin-top: 70%">Kabeers Drive</p>
   <img src="ic_launcher.png" style="width: 50%;height: auto;margin-top: 70%">-->
 </div>
@@ -72,7 +101,7 @@ function preload_remover()
         $("#preloader").hide();
 
 }
-</script>';
+</script>-->';
 echo'
 
 <script>
@@ -126,33 +155,23 @@ padding-top: 10px;
 }
 
 </style>
-<div class="container">
+<div class="container" style="margin-top:-1.5em;" onload="preload_remover()">
     <div class="row">
         <div class="col-md-12">
             
 <div class="input-group" style="width:100%">
   <div style="width:100%" class="input-group-prepend">
 <form action="" method="post" style="width:100%">
-<span class="input-group-text"><FileName:></FileName:></span><br> 
+<span class="input-group-text"></span><br> 
 <input type="text" name="name"  placeholder="Example.txt" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"><br>
 <span class="input-group-text">Enter Text:</span><br>
 <textarea rows="10"style="border-radius:5px;width:100%;" value="<?php echo $_POST['text']; ?>" placeholder="//write your code here..."  name="text"></textarea>
 <br><br>
-<input style="float:right" class="btn btn-outline-secondary" id="upload" type="submit" name="submit" value="Upload"></form>
+<input style="float:right" class="btn bg-primary text-light w-100" id="upload" type="submit" name="submit" value="Upload"></form>
   </div>
 </div>
 
-    <li>Add type of extention you want</li>
         </div>
     </div>
 </div>
 
-<nav aria-label="breadcrumb mt-0">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">User Files</a></li>
-    <li class="breadcrumb-item">Manager</li>
-    
-    <li class="breadcrumb-item active" aria-current="page">Text Editor</li>
-  </ol>
-</nav>

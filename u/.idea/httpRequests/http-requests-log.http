@@ -1,0 +1,14 @@
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+<> 2020-03-15T050741.404.html
+
+###
+
+GET http://localhost:80/api/item?id=99
+Accept: application/json
+
+<> 2020-03-15T050732.404.html
+
+###
+
