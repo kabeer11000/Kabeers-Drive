@@ -3,14 +3,14 @@ ErrorDocument 401 http://drive.hosted-kabeersnetwork.unaux.com
 ErrorDocument 403 http://drive.hosted-kabeersnetwork.unaux.com
 ErrorDocument 404 http://drive.hosted-kabeersnetwork.unaux.com
 ErrorDocument 503 http://drive.hosted-kabeersnetwork.unaux.com
-SetEnv PHPRC /etc/php70/php.ini
-<Files ~ "\.(ini)$">
-order allow,deny
-deny from all
-</Files>
-upload_max_filesize = 9000M
-post_max_size 9000M
-php_value upload_max_filesize 9000M
-php_value post_max_size 9000M
-php_value max_execution_time 900
-php_value max_input_time 900
+#SetEnv PHPRC /etc/php70/php.ini
+#<Files ~ "\.(ini)$">
+#order allow,deny
+#deny from all
+#</Files>
+#upload_max_filesize = 9000M
+#post_max_size 9000M
+#php_value upload_max_filesize 9000M
+#php_value post_max_size 9000M
+#php_value max_execution_time 900
+#php_value max_input_time 900
